@@ -1,25 +1,15 @@
 const express = require('express');
-const { MongoURI } = require('./config');
+const connectDB = require('./config/db');
 const app = express();
-const mongoose = require('mongoose');
+const PORT = 3000;
 
-// mongoose.connect(URI, {
-//   useNewUrlParser: true,
-//   useCreateIndex: true
-// });
-
-// mongoose.connection.on('connected', () => {
-//   console.log('Connected to MongoDB')
-// });
-
-// mongoose.connection.on('error', (err) => {
-//   console.error('Error connecting to MongoDB', err)
-// });
+//Connecting to MONGODB
+connectDB();
 
 app.get('/', (req, res) => {
   res.send('Hi there from root')
 });
 
-app.listen(3000, () => {
-  console.log('listening on port 3000' + MongoURI);
+app.listen(PORT, () => {
+  console.log('listening on port 3000');
 });
