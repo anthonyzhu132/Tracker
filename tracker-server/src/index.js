@@ -1,15 +1,13 @@
 const express = require('express');
-const connectDB = require('./config/db');
 const app = express();
-const PORT = 3000;
+const DB_KEY = process.env.DB_KEY
+require('dotenv').config();
 
-//Connecting to MONGODB
-connectDB();
 
 app.get('/', (req, res) => {
-  res.send('Hi there from root')
+  res.send("Hello from the root")
 });
 
-app.listen(PORT, () => {
-  console.log('listening on port 3000');
-});
+app.listen(3000, () => {
+  console.log("Listening on port 3000")
+})
