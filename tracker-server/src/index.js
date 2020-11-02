@@ -1,8 +1,22 @@
+require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 const DB_KEY = process.env.DB_KEY
-require('dotenv').config();
 
+mongoose.connect(DB_KEY, {
+   useNewUrlParser: true,
+   useCreateIndex: true,
+   useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', () => {
+  console.log('Connected to MongoDB')
+});
+
+mongoose.connection.on('error', () => {
+  console.error('Error connecting to mongoDB', err);
+})
 
 app.get('/', (req, res) => {
   res.send("Hello from the root")
