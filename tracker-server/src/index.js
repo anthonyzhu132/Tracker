@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const app = express();
 const DB_KEY = process.env.DB_KEY
 const authRoutes = require('./routes/authRoutes');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 app.use(authRoutes);
 
 mongoose.connect(DB_KEY, {
