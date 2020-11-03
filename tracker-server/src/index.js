@@ -1,5 +1,5 @@
 require('dotenv').config();
-require('./models/user');
+require('./models/User');
 const requireAuth = require('./middlewares/requireAuth');
 const express = require('express');
 const mongoose = require('mongoose');
