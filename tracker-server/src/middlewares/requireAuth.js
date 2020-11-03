@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
   //Verifies token with secret key and runs callback
   jwt.verify(token, 'SECRET_KEY', async (err, payload) => {
     if(err) {
-      return res.status(401).send({ error: "Must be logged in." });
+      return res.status(401).send({ error: "Error verifying secret key" });
     }
 
     //grabbing userId from payload
@@ -23,5 +23,7 @@ module.exports = (req, res, next) => {
 
     //Finding user by payload.userId
     const user = await User.findById(userId);
+    req.user = user;
+    next();
   });
 };

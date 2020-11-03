@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('./models/user');
+const requireAuth = require('./middlewares/requireAuth');
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -24,8 +25,8 @@ mongoose.connection.on('error', () => {
   console.error('Error connecting to mongoDB', err);
 });
 
-app.get('/', (req, res) => {
-  res.send("Hello from the root")
+app.get('/', requireAuth, (req, res) => {
+  res.send(`Your email: ${req.user.email}`)
 });
 
 app.listen(3000, () => {
