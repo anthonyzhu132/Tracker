@@ -5,7 +5,7 @@ import Spacer from '../components/Spacer';
 
 const SignupScreen = ({ navigation }) => {
   return (
-    <View>
+    <>
       <Spacer>
         <Text h3>Sign Up for Tracker</Text>
       </Spacer>
@@ -15,8 +15,14 @@ const SignupScreen = ({ navigation }) => {
       <Spacer>
         <Button title="Sign Up" />
       </Spacer>
-    </View>
+    </>
   );
+};
+
+SignupScreen.navigationOptions = () => {
+  return {
+    headerShown: false,
+  };
 };
 
 const styles = StyleSheet.create({});
