@@ -28,19 +28,19 @@ const signup = (dispatch) => {
   };
 };
 
-const signin = (dispatch) => { 
-  return async ({ email, password }) => {
-    try {
-      const response = await trackerAPI.post('/signup', { email, password });
-      await AsyncStorage.setItem('token', response.data.token);
-      dispatch({ type: 'signin', payload: response.data.token });
-      
-      navigate('TrackList');
-    } catch (err) {
-      dispatch({ type: 'add_error', payload: 'Something went wrong at sign in' })
-    }
-  };
+const signin = dispatch => async ({ email, password }) => {
+  try {
+    const response = await trackerAPI.post('/signin', { email, password });
+    await AsyncStorage.setItem('token', response.data.token);
+    dispatch({ type: 'signin', payload: response.data.token });
+
+    navigate('TrackList');
+  } catch (err) {
+    console.log(err)
+    dispatch({ type: 'add_error', payload: 'Something went wrong with sign in' });
+  }
 };
+
 
 const signout = (dispatch) => {
   return () => {
