@@ -31,7 +31,11 @@ const signup = (dispatch) => {
 
 const signin = (dispatch) => { 
   return ({ email, password }) => {
-    
+    try {
+      
+    } catch (err) {
+      
+    }
   };
 };
 
