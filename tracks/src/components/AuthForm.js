@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Text, Button, Input } from 'react-native-elements';
 import Spacer from './Spacer';
 
@@ -23,7 +23,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
     <Spacer />
     <Input
       secureTextEntry
-      label="Password"
+      label="Password"  
       value={password}
       onChangeText={setPassword}
       autoCapitalize="none"
