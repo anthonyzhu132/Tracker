@@ -12,6 +12,7 @@ import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/navigationRef';
 
+//Displays screens
 const switchNavigator = createSwitchNavigator({
   ResolveAuth: ResolveAuthScreen,
 
