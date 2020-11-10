@@ -24,12 +24,12 @@ const tryLocalSignin = dispatch => async () => {
     navigate('TrackList')
   } else {
     navigate('Signup')
-  }
-}
+  };
+};
 
 const clearErrorMessage = dispatch => () => {
-  dispatch({ type: 'clear_error_message' })
-}
+  dispatch({ type: 'clear_error_message' });
+};
 
 const signup = (dispatch) => {
   return async ({ email, password }) => {
@@ -55,13 +55,12 @@ const signin = dispatch => async ({ email, password }) => {
   } catch (err) {
     console.log(err)
     dispatch({ type: 'add_error', payload: 'Something went wrong with sign in' });
-  }
+  };
 };
 
 
 const signout = (dispatch) => {
   return () => {
-    
   };
 };
 
