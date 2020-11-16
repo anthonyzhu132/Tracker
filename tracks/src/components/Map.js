@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
 
 const Map = () => {
