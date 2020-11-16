@@ -10,12 +10,15 @@ const TrackCreateScreen = () => {
   const [err, setErr] = useState(null);
 
   const startWatching = async () => {
-    try {
-      await requestPermissionsAsync();
-    } catch (err) {
-      setErr(err)
+  try {
+    const { granted } = await requestPermissionsAsync();
+    if (!granted) {
+      throw new Error('Location permission not granted');
     }
+  } catch (e) {
+    setErr(e);
   }
+};
 
   useEffect(() => {
     startWatching();
