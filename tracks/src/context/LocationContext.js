@@ -16,7 +16,7 @@ const startRecording = (dispatch) => {
 };
 
 const stopRecording = (dispatch) => {
-  return () => {
+  return () => {  
 
   };
 };
