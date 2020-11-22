@@ -1,6 +1,5 @@
-import { ActionSheetIOS } from 'react-native';
 import createDataContext from './createDataContext';
-import CreateDataContext from './createDataContext';
+import trackerApi from '../api/tracker';
 
 const trackreducer = (state, action) => {
   switch (action.type) {
@@ -13,8 +12,8 @@ const fetchTracks = dispatch => () => {
 
 };
 
-const createTrack = dispatch => () => {
-
+const createTrack = dispatch => (name, locations) => {
+  console.log(name, locations.length);
 };
 
 export const { Provider, Context } = createDataContext(
