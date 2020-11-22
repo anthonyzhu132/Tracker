@@ -7,7 +7,7 @@ const locationReducer = (state, action) => {
     case 'start_recording':
       return { ...state, recording: true };
     case 'stop_recording':
-      return { ...state, recording: false };
+      return { ...state, recording: false }; 
     default:
       return state;
   };
@@ -28,6 +28,10 @@ const stopRecording = (dispatch) => {
 const addLocation = (dispatch) => {
   return (location) => {
     dispatch({ type: 'add_current_location', payload: location })
+
+    if (recording) {
+      dispatch({ type: 'add_location', payload: location })
+    }
   };
 };
 
