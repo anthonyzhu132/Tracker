@@ -35,7 +35,7 @@ const stopRecording = (dispatch) => {
   };
 };
 
-const addLocation = (dispatch) => {
+const addLocation = (dispatch, recording) => {
   return (location) => {
     dispatch({ type: 'add_current_location', payload: location })
 
